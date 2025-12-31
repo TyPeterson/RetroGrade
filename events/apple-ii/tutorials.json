@@ -1,0 +1,335 @@
+{
+  "version": "1.0",
+  "eventId": "apple-ii",
+  "totalLessons": 6,
+  "lessons": [
+    {
+      "id": "lesson-1",
+      "order": 1,
+      "title": "Hello, World!",
+      "objective": "Learn to display text on screen using the PRINT statement",
+      "concepts": ["PRINT statement", "String literals", "Immediate mode"],
+      "content": {
+        "introduction": "Welcome to Applesoft BASIC! The first thing every programmer learns is how to make the computer say \"Hello, World!\"",
+        "explanation": "The PRINT statement is the most fundamental command in BASIC. It displays text or numbers on the screen. When you want to print text (called a \"string\"), you must enclose it in double quotes.",
+        "syntax": "PRINT \"your text here\"",
+        "examples": [
+          {
+            "code": "PRINT \"HELLO\"",
+            "output": "HELLO",
+            "description": "Print a simple greeting"
+          },
+          {
+            "code": "PRINT \"APPLE II\"",
+            "output": "APPLE II",
+            "description": "Print text with a space"
+          }
+        ],
+        "tips": [
+          "Strings must be enclosed in double quotes",
+          "PRINT alone creates a blank line",
+          "The ] symbol is the BASIC prompt waiting for your command"
+        ]
+      },
+      "exercise": {
+        "prompt": "Write a command that prints 'HELLO WORLD' to the screen.",
+        "instructions": [
+          "Type the PRINT command followed by your message in quotes",
+          "Press ENTER to execute"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": ["HELLO WORLD"],
+          "caseSensitive": false,
+          "partialMatch": false
+        },
+        "hints": [
+          "Start with the PRINT command",
+          "Remember to use double quotes around your text",
+          "The full command is: PRINT \"HELLO WORLD\""
+        ]
+      }
+    },
+    {
+      "id": "lesson-2",
+      "order": 2,
+      "title": "Working with Variables",
+      "objective": "Learn to store and retrieve data using variables",
+      "concepts": ["LET statement", "Variables", "Numeric values", "String variables"],
+      "content": {
+        "introduction": "Variables are like labeled boxes where you can store information to use later. They're one of the most powerful features of programming.",
+        "explanation": "In BASIC, you can store numbers or text in variables. Variable names are usually single letters (A, B, X, Y). For text (strings), add a dollar sign ($) to the name (A$, N$). Use LET to assign a value to a variable, though LET is optional.",
+        "syntax": "LET variable = value\nvariable = value",
+        "examples": [
+          {
+            "code": "LET A = 5\nPRINT A",
+            "output": "5",
+            "description": "Store a number and print it"
+          },
+          {
+            "code": "X = 10\nY = 20\nPRINT X + Y",
+            "output": "30",
+            "description": "Math with variables"
+          },
+          {
+            "code": "N$ = \"WOZNIAK\"\nPRINT N$",
+            "output": "WOZNIAK",
+            "description": "Store and print text"
+          }
+        ],
+        "tips": [
+          "Variable names can be one or two characters (A, X, A1, X9)",
+          "Add $ for string variables (text)",
+          "LET is optional - you can write X = 5 instead of LET X = 5",
+          "Variables remember their values until you change them or run NEW"
+        ]
+      },
+      "exercise": {
+        "prompt": "Create a variable called X, assign it the value 42, and print it.",
+        "instructions": [
+          "First line: create the variable and assign the value",
+          "Second line: print the variable",
+          "Remember, you can omit LET if you want"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": ["42"],
+          "caseSensitive": false,
+          "partialMatch": false
+        },
+        "hints": [
+          "You need two commands: one to set X, one to print it",
+          "First command: X = 42",
+          "Second command: PRINT X"
+        ]
+      }
+    },
+    {
+      "id": "lesson-3",
+      "order": 3,
+      "title": "Getting User Input",
+      "objective": "Learn to accept input from the user with the INPUT statement",
+      "concepts": ["INPUT statement", "User interaction", "Prompts", "String input"],
+      "content": {
+        "introduction": "Programs become much more interesting when they can interact with the user. The INPUT statement lets your program ask questions and receive answers.",
+        "explanation": "INPUT waits for the user to type something and press ENTER. You can provide a prompt (a question or message) to tell the user what to enter. The response is stored in a variable you specify.",
+        "syntax": "INPUT variable\nINPUT \"prompt\"; variable",
+        "examples": [
+          {
+            "code": "INPUT N$\nPRINT \"HI \"; N$",
+            "output": "? (user types: STEVE)\nHI STEVE",
+            "description": "Ask for a name and greet"
+          },
+          {
+            "code": "INPUT \"AGE\"; A\nPRINT \"YOU ARE \"; A",
+            "output": "AGE? (user types: 25)\nYOU ARE 25",
+            "description": "Input with a prompt"
+          }
+        ],
+        "tips": [
+          "The ? is automatically shown when INPUT waits",
+          "Use a semicolon (;) after the prompt text",
+          "For text input, use a string variable (ending in $)",
+          "For numbers, use a regular variable"
+        ]
+      },
+      "exercise": {
+        "prompt": "Create a program that asks for the user's name and prints a greeting.",
+        "instructions": [
+          "Use INPUT to ask for a name (store it in N$)",
+          "Use PRINT to say HELLO followed by the name",
+          "When prompted, type any name and press ENTER"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": ["HELLO"],
+          "caseSensitive": false,
+          "partialMatch": true
+        },
+        "hints": [
+          "First command: INPUT N$",
+          "Second command: PRINT \"HELLO \"; N$",
+          "Notice the space after HELLO in the quotes",
+          "The semicolon joins the text with the name"
+        ]
+      }
+    },
+    {
+      "id": "lesson-4",
+      "order": 4,
+      "title": "Making Decisions with IF",
+      "objective": "Learn to make your programs respond to different conditions",
+      "concepts": ["IF...THEN statement", "Comparison operators", "Conditional logic", "Program flow"],
+      "content": {
+        "introduction": "Programs need to make decisions based on conditions. The IF...THEN statement lets your code take different actions depending on whether something is true or false.",
+        "explanation": "IF checks a condition. If it's true, the THEN part executes. You can compare values using operators: = (equal), < (less than), > (greater than), <= (less or equal), >= (greater or equal), and <> (not equal).",
+        "syntax": "IF condition THEN statement",
+        "examples": [
+          {
+            "code": "X = 15\nIF X > 10 THEN PRINT \"BIG\"",
+            "output": "BIG",
+            "description": "Check if a number is big"
+          },
+          {
+            "code": "AGE = 8\nIF AGE < 13 THEN PRINT \"CHILD\"",
+            "output": "CHILD",
+            "description": "Categorize by age"
+          },
+          {
+            "code": "A = 5\nIF A = 5 THEN PRINT \"MATCH\"",
+            "output": "MATCH",
+            "description": "Check for exact match"
+          }
+        ],
+        "tips": [
+          "IF needs THEN - they always go together",
+          "Use = for equals (not == like some languages)",
+          "Use <> for \"not equal to\"",
+          "In program mode, you can use GOTO after THEN"
+        ]
+      },
+      "exercise": {
+        "prompt": "Create a variable N with the value 15. If N is greater than 10, print 'BIG'. Otherwise, print 'SMALL'.",
+        "instructions": [
+          "Set N = 15",
+          "Use IF to check if N > 10",
+          "You'll need two IF statements to handle both cases"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": ["BIG"],
+          "caseSensitive": false,
+          "partialMatch": false
+        },
+        "hints": [
+          "First: N = 15",
+          "Second: IF N > 10 THEN PRINT \"BIG\"",
+          "For a complete solution, add: IF N <= 10 THEN PRINT \"SMALL\"",
+          "Since N is 15, only BIG should print"
+        ]
+      }
+    },
+    {
+      "id": "lesson-5",
+      "order": 5,
+      "title": "Repeating with FOR...NEXT",
+      "objective": "Learn to repeat actions using loops",
+      "concepts": ["FOR...NEXT loops", "Loop variable", "STEP", "Iteration"],
+      "content": {
+        "introduction": "Loops are one of programming's superpowers - they let you repeat actions without writing the same code over and over. The FOR...NEXT loop runs a block of code a specific number of times.",
+        "explanation": "FOR creates a loop variable and sets its starting value. TO specifies the ending value. Each time through the loop, the variable increases by 1 (or by STEP amount if specified). NEXT marks the end of the loop and returns to FOR.",
+        "syntax": "FOR variable = start TO end\n  commands\nNEXT variable",
+        "examples": [
+          {
+            "code": "FOR I = 1 TO 3\nPRINT I\nNEXT I",
+            "output": "1\n2\n3",
+            "description": "Count from 1 to 3"
+          },
+          {
+            "code": "FOR X = 5 TO 10 STEP 2\nPRINT X\nNEXT X",
+            "output": "5\n7\n9",
+            "description": "Count by 2s"
+          },
+          {
+            "code": "FOR N = 10 TO 1 STEP -1\nPRINT N\nNEXT N",
+            "output": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1",
+            "description": "Count backwards"
+          }
+        ],
+        "tips": [
+          "The loop variable is often I, J, or K by convention",
+          "STEP is optional - default is 1",
+          "Use negative STEP to count backwards",
+          "The variable in NEXT should match the one in FOR",
+          "You can use the loop variable inside the loop"
+        ]
+      },
+      "exercise": {
+        "prompt": "Use a FOR loop to print the numbers 1 through 5, each on its own line.",
+        "instructions": [
+          "Create a FOR loop that counts from 1 to 5",
+          "Inside the loop, PRINT the loop variable",
+          "Don't forget NEXT at the end"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": ["1", "2", "3", "4", "5"],
+          "caseSensitive": false,
+          "partialMatch": false
+        },
+        "hints": [
+          "Start with: FOR I = 1 TO 5",
+          "Then: PRINT I",
+          "End with: NEXT I",
+          "All three lines are needed"
+        ]
+      }
+    },
+    {
+      "id": "lesson-6",
+      "order": 6,
+      "title": "Your First BASIC Program",
+      "objective": "Combine all concepts into a complete program",
+      "concepts": ["Complete programs", "Line numbers", "Program flow", "Combining concepts"],
+      "content": {
+        "introduction": "Now it's time to put everything together! You've learned PRINT, variables, INPUT, IF, and loops. Let's combine these to create a real program that runs from start to finish.",
+        "explanation": "Unlike immediate mode where each command runs right away, programs use line numbers. Line numbers tell BASIC what order to run commands. Type lines in any order - BASIC sorts them by number. Use RUN to execute your program from the lowest line number.",
+        "syntax": "10 FIRST COMMAND\n20 SECOND COMMAND\n30 THIRD COMMAND\nRUN",
+        "examples": [
+          {
+            "code": "10 PRINT \"HELLO\"\n20 PRINT \"WORLD\"\nRUN",
+            "output": "HELLO\nWORLD",
+            "description": "Simple two-line program"
+          },
+          {
+            "code": "10 INPUT N$\n20 PRINT \"HI \"; N$\nRUN",
+            "output": "? (user types: PAT)\nHI PAT",
+            "description": "Program with input"
+          },
+          {
+            "code": "10 FOR I = 1 TO 3\n20 PRINT \"BASIC!\"\n30 NEXT I\nRUN",
+            "output": "BASIC!\nBASIC!\nBASIC!",
+            "description": "Program with a loop"
+          }
+        ],
+        "tips": [
+          "Line numbers usually go by 10s (10, 20, 30) so you can insert lines later",
+          "Type LIST to see your program",
+          "Type NEW to erase your program and start fresh",
+          "Type RUN to execute your program",
+          "You can type lines in any order - BASIC sorts them"
+        ]
+      },
+      "exercise": {
+        "prompt": "Create a mini calculator program that asks for two numbers and prints their sum.",
+        "instructions": [
+          "Line 10: INPUT the first number into variable A",
+          "Line 20: INPUT the second number into variable B",
+          "Line 30: PRINT the sum (A + B)",
+          "Then type RUN to execute",
+          "When it runs, enter any two numbers"
+        ],
+        "starterCode": "",
+        "validation": {
+          "type": "output",
+          "expectedOutput": [],
+          "caseSensitive": false,
+          "partialMatch": true,
+          "customCheck": "sum"
+        },
+        "hints": [
+          "Line 10: INPUT A",
+          "Line 20: INPUT B",
+          "Line 30: PRINT A + B",
+          "Finally: RUN",
+          "When you see ?, type a number and press ENTER"
+        ]
+      }
+    }
+  ]
+}

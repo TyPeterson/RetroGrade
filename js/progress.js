@@ -85,6 +85,42 @@ const Progress = {
   },
 
   /**
+   * Mark lesson as completed for an event
+   * @param {string} eventId
+   * @param {string} lessonId
+   */
+  markLessonCompleted(eventId, lessonId) {
+    const progress = this.getEventProgress(eventId)
+    if (!progress.lessonsCompleted.includes(lessonId)) {
+      progress.lessonsCompleted.push(lessonId)
+    }
+    this.save()
+  },
+
+  /**
+   * Check if lesson is completed
+   * @param {string} eventId
+   * @param {string} lessonId
+   * @returns {boolean}
+   */
+  isLessonCompleted(eventId, lessonId) {
+    const progress = this.getEventProgress(eventId)
+    return progress.lessonsCompleted.includes(lessonId)
+  },
+
+  /**
+   * Get tutorial completion percentage for event
+   * @param {string} eventId
+   * @param {number} totalLessons
+   * @returns {number} 0-100
+   */
+  getTutorialCompletion(eventId, totalLessons) {
+    const progress = this.getEventProgress(eventId)
+    if (totalLessons === 0) return 0
+    return Math.round((progress.lessonsCompleted.length / totalLessons) * 100)
+  },
+
+  /**
    * Get overall progress stats
    * @returns {Object} { visited: number, total: number, percentage: number }
    */

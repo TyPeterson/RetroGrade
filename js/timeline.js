@@ -96,14 +96,40 @@ const Timeline = {
       const dot = Utils.createElement('button', {
         className: Progress.isVisited(event.id) ? `${dotClasses} visited` : dotClasses,
         dataset: { eventId: event.id },
-        style: `left: ${position}%; top: calc(50% + ${yOffset}px)`,
         'aria-label': `${event.title} (${event.year})`
       })
+
+      const thumbnailPath = `./events/${event.id}/${event.thumbnail}`
+      const thumbnail = Utils.createElement('img', {
+        className: 'event-thumbnail',
+        src: thumbnailPath,
+        alt: event.title
+      })
+      dot.appendChild(thumbnail)
+
+      // Add progress ring if event has tutorial
+      if (event.tutorial?.enabled && event.tutorial.lessonCount) {
+        const completion = Progress.getTutorialCompletion(event.id, event.tutorial.lessonCount)
+        if (completion > 0 && completion < 100) {
+          const ring = this.createProgressRing(completion)
+          dot.appendChild(ring)
+        }
+      }
 
       const tooltip = this.createEventTooltip(event)
       dot.appendChild(tooltip)
 
-      layer.appendChild(dot)
+      const label = Utils.createElement('div', { className: 'event-label' }, [
+        Utils.createElement('span', { className: 'event-label-year' }, event.year.toString()),
+        Utils.createElement('span', { className: 'event-label-title' }, event.title)
+      ])
+
+      const eventContainer = Utils.createElement('div', {
+        className: 'timeline-event-container',
+        style: `left: ${position}%; top: calc(50% + ${yOffset}px)`
+      }, [dot, label])
+
+      layer.appendChild(eventContainer)
     })
 
     return layer
@@ -157,5 +183,43 @@ const Timeline = {
     if (dot) {
       dot.classList.add('visited')
     }
+  },
+
+  /**
+   * Create progress ring SVG for tutorial completion
+   * @param {number} percentage - Completion percentage (0-100)
+   * @returns {Element} SVG element
+   */
+  createProgressRing(percentage) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+    svg.setAttribute('class', 'progress-ring')
+    svg.setAttribute('viewBox', '0 0 48 48')
+    svg.setAttribute('width', '48')
+    svg.setAttribute('height', '48')
+
+    const radius = 20
+    const circumference = 2 * Math.PI * radius
+    const offset = circumference - (percentage / 100) * circumference
+
+    // Background circle
+    const bgCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+    bgCircle.setAttribute('class', 'progress-ring-bg')
+    bgCircle.setAttribute('cx', '24')
+    bgCircle.setAttribute('cy', '24')
+    bgCircle.setAttribute('r', radius.toString())
+
+    // Progress circle
+    const progressCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+    progressCircle.setAttribute('class', 'progress-ring-fill')
+    progressCircle.setAttribute('cx', '24')
+    progressCircle.setAttribute('cy', '24')
+    progressCircle.setAttribute('r', radius.toString())
+    progressCircle.setAttribute('stroke-dasharray', circumference.toString())
+    progressCircle.setAttribute('stroke-dashoffset', offset.toString())
+
+    svg.appendChild(bgCircle)
+    svg.appendChild(progressCircle)
+
+    return svg
   }
 }

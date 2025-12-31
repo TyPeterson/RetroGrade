@@ -1,0 +1,232 @@
+/**
+ * Apple II BASIC Environment Styles
+ * CRT screen emulation with green phosphor effect
+ */
+
+/* Container */
+.apple-ii-environment {
+  --apple-green: #33FF33;
+  --apple-green-dim: #22CC22;
+  --apple-black: #0A0A0A;
+  --phosphor-glow: rgba(51, 255, 51, 0.4);
+  --scanline-alpha: 0.03;
+
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Monitor Frame */
+.apple-ii-monitor {
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow:
+    0 10px 50px rgba(0, 0, 0, 0.6),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.monitor-bezel {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  border: 2px solid #333;
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
+    inset 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+/* CRT Screen */
+.apple-ii-screen {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--apple-black);
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--apple-green);
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: text;
+
+  /* CRT curvature shadow */
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.7),
+    inset 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scanlines overlay */
+.apple-ii-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, var(--scanline-alpha)) 2px,
+    rgba(0, 0, 0, var(--scanline-alpha)) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle screen glow */
+.apple-ii-screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(51, 255, 51, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Screen content container */
+.screen-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Screen lines */
+.screen-line {
+  white-space: pre;
+  text-shadow:
+    0 0 5px var(--phosphor-glow),
+    0 0 10px var(--phosphor-glow);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* Cursor */
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: var(--apple-green);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  box-shadow:
+    0 0 8px var(--phosphor-glow),
+    0 0 15px var(--phosphor-glow);
+}
+
+.cursor.solid {
+  animation: none;
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Input line (with cursor) */
+.input-line {
+  display: flex;
+  align-items: baseline;
+}
+
+.input-text {
+  text-shadow:
+    0 0 5px var(--phosphor-glow),
+    0 0 10px var(--phosphor-glow);
+}
+
+/* Environment controls */
+.environment-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-card);
+  border-radius: var(--border-radius);
+  gap: var(--space-md);
+}
+
+.btn-reset {
+  padding: var(--space-sm) var(--space-md);
+  background: #8B0000;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-reset:hover {
+  background: #A52A2A;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+}
+
+.btn-reset:active {
+  transform: translateY(0);
+}
+
+.environment-label {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  flex: 1;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apple-ii-screen {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .apple-ii-monitor {
+    padding: 16px;
+  }
+
+  .monitor-bezel {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-ii-screen {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .apple-ii-monitor {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .environment-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .environment-label {
+    text-align: center;
+    font-size: var(--font-size-base);
+  }
+}

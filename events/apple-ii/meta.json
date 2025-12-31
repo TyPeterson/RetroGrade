@@ -12,5 +12,13 @@
   ],
   "thumbnail": "thumbnail.svg",
   "relatedEvents": ["commodore-64"],
-  "tags": ["microcomputer", "apple", "8-bit", "basic"]
+  "tags": ["microcomputer", "apple", "8-bit", "basic"],
+  "tutorial": {
+    "enabled": true,
+    "lessonCount": 6
+  },
+  "environment": {
+    "type": "apple-ii-basic",
+    "enabled": true
+  }
 }

@@ -87,8 +87,8 @@ const App = {
 
       <div class="event-tabs">
         <button class="tab-btn active" data-tab="history">History</button>
-        <button class="tab-btn disabled" data-tab="tutorial">Tutorial</button>
-        <button class="tab-btn disabled" data-tab="playground">Playground</button>
+        <button class="tab-btn ${event.tutorial?.enabled ? '' : 'disabled'}" data-tab="tutorial">Tutorial</button>
+        <button class="tab-btn ${event.environment?.enabled ? '' : 'disabled'}" data-tab="playground">Playground</button>
       </div>
 
       <div class="event-tab-content">
@@ -114,9 +114,18 @@ const App = {
             </div>
           ` : ''}
         </div>
+        <div class="tab-panel" id="panel-tutorial">
+          <div id="tutorial-container"></div>
+        </div>
+        <div class="tab-panel" id="panel-playground">
+          <div id="playground-container"></div>
+        </div>
       </div>
     `
 
+    this.currentEvent = event
+    this.environmentInitialized = false
+    this.tutorialInitialized = false
     this.attachTabHandlers()
   },
 
@@ -126,7 +135,7 @@ const App = {
   attachTabHandlers() {
     const tabs = Utils.$$('.tab-btn:not(.disabled)')
     tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
+      tab.addEventListener('click', async () => {
         Utils.$$('.tab-btn').forEach(t => t.classList.remove('active'))
         Utils.$$('.tab-panel').forEach(p => p.classList.remove('active'))
 
@@ -135,8 +144,86 @@ const App = {
         if (panel) {
           panel.classList.add('active')
         }
+
+        // Initialize tutorial if tutorial tab is clicked
+        if (tab.dataset.tab === 'tutorial' && !this.tutorialInitialized) {
+          this.tutorialInitialized = true
+          await this.initializeTutorial()
+        }
+
+        // Initialize environment if playground tab is clicked
+        if (tab.dataset.tab === 'playground' && !this.environmentInitialized) {
+          this.environmentInitialized = true
+          await this.initializeEnvironment()
+        }
       })
     })
+  },
+
+  /**
+   * Initialize the tutorial system
+   */
+  async initializeTutorial() {
+    const event = this.currentEvent
+    if (!event || !event.tutorial || !event.tutorial.enabled) {
+      return
+    }
+
+    const container = Utils.$('#tutorial-container')
+    if (!container) {
+      console.error('Tutorial container not found')
+      return
+    }
+
+    try {
+      // Show loading state
+      container.innerHTML = '<div class="tutorial-loading">Loading tutorial...</div>'
+
+      // Initialize tutorial engine
+      await TutorialEngine.init(event.id)
+
+      // Initialize renderer
+      TutorialRenderer.init(container)
+
+      // Render first lesson
+      const currentLesson = TutorialEngine.getCurrentLesson()
+      if (currentLesson) {
+        TutorialRenderer.renderLesson(currentLesson)
+      } else {
+        container.innerHTML = '<div class="tutorial-error"><h3>Error</h3><p>No lessons found.</p></div>'
+      }
+    } catch (error) {
+      console.error('Failed to initialize tutorial:', error)
+      container.innerHTML = `<div class="tutorial-error"><h3>Error</h3><p>Failed to load tutorial: ${error.message}</p></div>`
+    }
+  },
+
+  /**
+   * Initialize the playground environment
+   */
+  async initializeEnvironment() {
+    const event = this.currentEvent
+    if (!event || !event.environment || !event.environment.enabled) {
+      return
+    }
+
+    const container = Utils.$('#playground-container')
+    if (!container) {
+      console.error('Playground container not found')
+      return
+    }
+
+    try {
+      // Initialize environment based on type
+      if (event.environment.type === 'apple-ii-basic') {
+        await AppleIIEnvironment.init(container)
+      } else {
+        console.warn(`Unknown environment type: ${event.environment.type}`)
+      }
+    } catch (error) {
+      console.error('Failed to initialize environment:', error)
+      container.innerHTML = '<p class="error">Failed to load environment. Please try again.</p>'
+    }
   },
 
   /**

@@ -56,24 +56,71 @@
   height: 200px;
 }
 
+/* Event Container */
+.timeline-event-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  transform: translate(-50%, -50%);
+}
+
 /* Event Dots */
 .timeline-event-dot {
-  position: absolute;
-  top: 50%;
-  width: var(--event-dot-size);
-  height: var(--event-dot-size);
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--color-bg-card);
   border: 3px solid var(--color-accent);
-  transform: translate(-50%, -50%);
   cursor: pointer;
   transition: all var(--transition-normal);
   z-index: 10;
+  padding: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .timeline-event-dot:hover {
-  transform: translate(-50%, -50%) scale(1.3);
+  transform: scale(1.2);
   box-shadow: 0 0 20px currentColor;
+}
+
+/* Event Thumbnail */
+.event-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Event Label */
+.event-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  min-width: 100px;
+  pointer-events: none;
+}
+
+.event-label-year {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.event-label-title {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  max-width: 120px;
 }
 
 .timeline-event-dot:hover .timeline-tooltip {
@@ -105,18 +152,27 @@
 
 /* Visited state */
 .timeline-event-dot.visited {
-  background: var(--color-accent);
+  border-width: 4px;
+  box-shadow: 0 0 12px var(--color-accent);
 }
 
 .timeline-event-dot.visited::after {
   content: '✓';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--color-bg-primary);
-  font-size: var(--font-size-xs);
+  font-size: 12px;
   font-weight: bold;
+  border: 2px solid var(--color-bg-primary);
+  z-index: 1;
 }
 
 /* Tooltip */
@@ -184,9 +240,29 @@
   }
 
   .timeline-event-dot {
-    width: 12px;
-    height: 12px;
+    width: 36px;
+    height: 36px;
     border-width: 2px;
+    padding: 3px;
+  }
+
+  .timeline-event-dot.visited::after {
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+  }
+
+  .event-label {
+    min-width: 80px;
+  }
+
+  .event-label-year {
+    font-size: var(--font-size-sm);
+  }
+
+  .event-label-title {
+    font-size: 10px;
+    max-width: 90px;
   }
 
   .timeline-tooltip {

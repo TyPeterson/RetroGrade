@@ -10,6 +10,7 @@
 @import url('./themes/retro.css');
 @import url('./timeline.css');
 @import url('./event-card.css');
+@import url('./tutorial.css');
 
 /* CSS Reset */
 *, *::before, *::after {
