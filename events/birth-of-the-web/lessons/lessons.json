@@ -1,0 +1,11 @@
+{
+  "lessons": [
+    {
+      "id": "intro",
+      "title": "Introduction to the World Wide Web",
+      "file": "01-intro.md",
+      "type": "reading",
+      "estimatedMinutes": 5
+    }
+  ]
+}

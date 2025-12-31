@@ -1,0 +1,15 @@
+{
+  "title": "Birth of the World Wide Web",
+  "year": 1991,
+  "month": 8,
+  "category": "web",
+  "summary": "In 1991, Tim Berners-Lee launched the first website at CERN, introducing the World Wide Web to the world. This revolutionary system combined hypertext, networking, and a simple markup language to create an interconnected information space.",
+  "significance": "The World Wide Web transformed the internet from a text-based system used primarily by academics and researchers into a global multimedia platform accessible to everyone. Berners-Lee's decision to make the technology freely available, without patents or royalties, enabled the explosive growth that followed. The web became the foundation for e-commerce, social media, and the modern digital economy.",
+  "keyFigures": [
+    "Tim Berners-Lee - Inventor of the World Wide Web",
+    "Robert Cailliau - Collaborator and advocate for the project"
+  ],
+  "thumbnail": "thumbnail.svg",
+  "relatedEvents": ["html-dawn"],
+  "tags": ["web", "http", "html", "hypertext", "cern"]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "HTML & The First Browsers",
+  "year": 1993,
+  "month": 4,
+  "category": "web",
+  "summary": "The release of NCSA Mosaic in 1993 brought the World Wide Web to the masses. This groundbreaking browser could display images inline with text, making the web visual and accessible to non-technical users.",
+  "significance": "Mosaic transformed the web from a text-based academic tool into a multimedia platform that anyone could use. Its intuitive interface and ability to display images, formatted text, and eventually other media types sparked the first web boom. Within a year of Mosaic's release, web traffic increased by 350,000%. The browser's influence extended far beyond its own lifetime, as its developers went on to create Netscape Navigator and Internet Explorer.",
+  "keyFigures": [
+    "Marc Andreessen - Lead developer of Mosaic",
+    "Eric Bina - Co-developer of Mosaic",
+    "Tim Berners-Lee - Creator of HTML and HTTP"
+  ],
+  "thumbnail": "thumbnail.svg",
+  "relatedEvents": ["birth-of-the-web", "javascript-netscape"],
+  "tags": ["web", "html", "browser", "mosaic", "multimedia"]
+}

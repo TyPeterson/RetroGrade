@@ -1,0 +1,196 @@
+/**
+ * Retrograde - Timeline Styles
+ * Horizontal scrollable timeline with year markers and event dots
+ */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  padding: var(--space-3xl) 0;
+}
+
+/* Year Axis */
+.timeline-axis {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-bottom: var(--space-xl);
+}
+
+.timeline-decade-marker {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.decade-label {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+}
+
+/* Timeline Track */
+.timeline-track {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-track-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: var(--timeline-track-height);
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-hover));
+  transform: translateY(-50%);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Events Layer */
+.timeline-events {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+/* Event Dots */
+.timeline-event-dot {
+  position: absolute;
+  top: 50%;
+  width: var(--event-dot-size);
+  height: var(--event-dot-size);
+  border-radius: 50%;
+  background: var(--color-bg-card);
+  border: 3px solid var(--color-accent);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  z-index: 10;
+}
+
+.timeline-event-dot:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  box-shadow: 0 0 20px currentColor;
+}
+
+.timeline-event-dot:hover .timeline-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+/* Category-specific colors */
+.timeline-event-dot.category-hardware {
+  border-color: var(--color-hardware);
+}
+
+.timeline-event-dot.category-web {
+  border-color: var(--color-web);
+}
+
+.timeline-event-dot.category-language {
+  border-color: var(--color-language);
+}
+
+.timeline-event-dot.category-os {
+  border-color: var(--color-os);
+}
+
+.timeline-event-dot.category-tool {
+  border-color: var(--color-tool);
+}
+
+/* Visited state */
+.timeline-event-dot.visited {
+  background: var(--color-accent);
+}
+
+.timeline-event-dot.visited::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-bg-primary);
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+}
+
+/* Tooltip */
+.timeline-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-card);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  min-width: 150px;
+  margin-bottom: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  pointer-events: none;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.timeline-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--color-bg-card);
+}
+
+.tooltip-year {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+}
+
+.tooltip-title {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.tooltip-category {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 640px) {
+  .timeline {
+    padding: var(--space-lg) 0;
+  }
+
+  .timeline-track {
+    height: 150px;
+  }
+
+  .timeline-events {
+    height: 150px;
+  }
+
+  .timeline-event-dot {
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .timeline-tooltip {
+    min-width: 120px;
+    font-size: var(--font-size-xs);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Apple II",
+  "year": 1977,
+  "month": 6,
+  "category": "hardware",
+  "summary": "The Apple II, released in June 1977, was one of the first highly successful mass-produced microcomputers. It featured color graphics, an open architecture, and BASIC programming built-in.",
+  "significance": "The Apple II democratized personal computing, bringing computers into homes and schools. Its open architecture inspired a vibrant ecosystem of third-party hardware and software. The computer remained in production for nearly two decades, making it one of the longest-lived computer platforms in history.",
+  "keyFigures": [
+    "Steve Wozniak - Hardware designer and engineer",
+    "Steve Jobs - Co-founder, marketing vision",
+    "Mike Markkula - Early investor and business guidance"
+  ],
+  "thumbnail": "thumbnail.svg",
+  "relatedEvents": ["commodore-64"],
+  "tags": ["microcomputer", "apple", "8-bit", "basic"]
+}

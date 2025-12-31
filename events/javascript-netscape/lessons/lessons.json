@@ -1,0 +1,11 @@
+{
+  "lessons": [
+    {
+      "id": "intro",
+      "title": "Introduction to JavaScript",
+      "file": "01-intro.md",
+      "type": "reading",
+      "estimatedMinutes": 5
+    }
+  ]
+}

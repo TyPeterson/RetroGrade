@@ -1,0 +1,16 @@
+{
+  "title": "Commodore 64",
+  "year": 1982,
+  "month": 8,
+  "category": "hardware",
+  "summary": "The Commodore 64, introduced in 1982, became the best-selling single computer model of all time. With its powerful graphics and sound capabilities, affordable price, and massive software library, it defined home computing for a generation.",
+  "significance": "The C64 brought computing to the masses with an unprecedented combination of power and affordability. Its SID sound chip revolutionized computer music, and its sprite graphics made arcade-quality games possible at home. Over 17 million units were sold, making it a cultural phenomenon that introduced millions to programming through BASIC.",
+  "keyFigures": [
+    "Jack Tramiel - Founder of Commodore, business strategy",
+    "Robert Yannes - Designer of the SID sound chip",
+    "Al Charpentier - Designer of the VIC-II graphics chip"
+  ],
+  "thumbnail": "thumbnail.svg",
+  "relatedEvents": ["apple-ii"],
+  "tags": ["microcomputer", "commodore", "8-bit", "basic", "gaming"]
+}

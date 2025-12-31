@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrograde - Time-Traveling Programming Education</title>
+  <meta name="description" content="Explore computing history through interactive timelines and hands-on programming lessons">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="container">
+        <a href="#/timeline" class="logo">
+          <span class="logo-icon">&#x25C0;</span>
+          <span class="logo-text">Retrograde</span>
+        </a>
+        <nav class="main-nav">
+          <a href="#/timeline" class="nav-link">Timeline</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div id="error-message" class="error-banner hidden"></div>
+
+      <section id="view-timeline" class="view">
+        <div class="container">
+          <div class="timeline-header">
+            <h1>Computing History</h1>
+            <p class="subtitle">Explore the milestones that shaped programming</p>
+          </div>
+          <div id="timeline-container" class="timeline-wrapper"></div>
+        </div>
+      </section>
+
+      <section id="view-event-detail" class="view">
+        <div class="container">
+          <div id="event-detail-content"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>&copy; 2025 Retrograde. Learn by traveling through time.</p>
+    </footer>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/events-loader.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

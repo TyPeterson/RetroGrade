@@ -1,0 +1,15 @@
+{
+  "title": "JavaScript is Born",
+  "year": 1995,
+  "month": 12,
+  "category": "language",
+  "summary": "In May 1995, Brendan Eich created JavaScript in just 10 days at Netscape. Initially called Mocha, then LiveScript, it was renamed JavaScript and released in Netscape Navigator 2.0 in December 1995, bringing interactivity to the static web.",
+  "significance": "JavaScript transformed the web from a document viewing platform into an interactive application platform. Despite its rushed creation and initial limitations, JavaScript became one of the most important programming languages in history. Today, it powers everything from simple form validations to complex web applications, mobile apps, and even server-side systems. Its evolution from a simple scripting language to a full-featured programming language demonstrates the power of community-driven development and standardization.",
+  "keyFigures": [
+    "Brendan Eich - Creator of JavaScript",
+    "Marc Andreessen - Co-founder of Netscape, pushed for scripting language"
+  ],
+  "thumbnail": "thumbnail.svg",
+  "relatedEvents": ["html-dawn"],
+  "tags": ["javascript", "programming", "web", "netscape", "scripting"]
+}

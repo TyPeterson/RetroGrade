@@ -1,0 +1,7 @@
+# JavaScript is Born: 10 Days That Changed the Web
+
+In May 1995, Brendan Eich had a problem and a deadline. Netscape needed a scripting language for their browser to compete with Microsoft, and they needed it fast. Working around the clock, Eich created the first version of JavaScript (initially called Mocha) in just 10 days. This rushed development would have lasting consequences—both good and bad—for the language's design.
+
+JavaScript was designed to be accessible to non-programmers. It borrowed syntax from Java (mostly for marketing reasons), but its prototype-based inheritance and first-class functions came from Self and Scheme. The language was deliberately forgiving, coercing types automatically and allowing code to run even with errors. While this made JavaScript easy to start with, it also led to many quirks and "wat" moments that developers still encounter today.
+
+Despite its rough edges, JavaScript succeeded beyond anyone's wildest dreams. As the only programming language built into web browsers, it became unavoidable for web development. The creation of AJAX in the early 2000s, followed by powerful JavaScript engines like V8, transformed JavaScript from a simple scripting language into a platform for complex applications. Today, JavaScript runs not just in browsers but on servers (Node.js), in mobile apps (React Native), and even on embedded devices. The language Eich created in 10 days has become one of the most widely used programming languages in the world.

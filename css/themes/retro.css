@@ -1,0 +1,70 @@
+/**
+ * Retrograde - Retro Theme
+ * CSS Custom Properties for the design system
+ */
+
+:root {
+  /* Color Palette - Retro Computing Theme */
+  --color-terminal-green: #33ff33;
+  --color-terminal-amber: #ffb000;
+  --color-crt-black: #0a0a0a;
+  --color-crt-glow: rgba(51, 255, 51, 0.1);
+
+  /* Era-specific accent colors */
+  --color-era-1970s: #ff6b35;
+  --color-era-1980s: #00d4ff;
+  --color-era-1990s: #9945ff;
+  --color-era-2000s: #00ff88;
+  --color-era-2010s: #ff4081;
+
+  /* Semantic Colors */
+  --color-bg-primary: #1a1a2e;
+  --color-bg-secondary: #16213e;
+  --color-bg-card: #0f3460;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: var(--color-terminal-green);
+  --color-accent-hover: #66ff66;
+
+  /* Category Colors */
+  --color-hardware: #00d4ff;
+  --color-web: #ff6b35;
+  --color-language: #ffcc00;
+  --color-os: #9945ff;
+  --color-tool: #00ff88;
+
+  /* Typography */
+  --font-display: 'VT323', 'Courier New', monospace;
+  --font-body: 'IBM Plex Mono', 'Consolas', monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Layout */
+  --container-max: 1200px;
+  --timeline-track-height: 4px;
+  --event-dot-size: 16px;
+  --event-card-width: 280px;
+
+  /* Effects */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px var(--color-crt-glow);
+  --border-radius: 4px;
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+}

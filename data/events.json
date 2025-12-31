@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "events": [
+    { "id": "apple-ii", "enabled": true },
+    { "id": "commodore-64", "enabled": true },
+    { "id": "birth-of-the-web", "enabled": true },
+    { "id": "html-dawn", "enabled": true },
+    { "id": "javascript-netscape", "enabled": true }
+  ]
+}
