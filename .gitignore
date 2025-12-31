@@ -17,3 +17,5 @@ npm-debug.log*
 # Temporary Files
 .tmp/
 temp/
+.claude/
+CLAUDE.md
